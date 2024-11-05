@@ -1,0 +1,28 @@
+@use "../global" as *;
+
+/// ------------------------
+// Component > button
+// ------------------------
+
+.c-btn {
+  // 基本スタイル
+  color: $font-primary;
+  background-color: $btn-bg;
+  font-size: 0.875rem; // 14px
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 13px 10px;
+  width: 243px;
+  margin: 0 auto; // 中央配置
+  transition: background-color 0.3s;
+  text-align: center;
+
+  &:hover {
+    background-color: $btn-bg-hover;
+  }
+
+  &--centered {
+    display: block;
+  }
+}

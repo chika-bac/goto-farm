@@ -1,0 +1,538 @@
+@use "../global" as *;
+
+// ------------------------
+// kv
+// ------------------------
+.kv {
+  background-image: url(../images/fv.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  &__copy {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 0;
+
+    @include mq(md) {
+      flex-direction: column;
+      writing-mode: vertical-rl;
+
+      top: 12%;
+      right: 8%;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    background-color: $bg-white;
+
+    line-height: 1;
+    padding: 10px 10px 10px 10px;
+
+    @include mq(md) {
+      display: block;
+      white-space: nowrap;
+      letter-spacing: 0.5em;
+      padding: 15px 15px calc(15px - 0.5em) 15px;
+    }
+  }
+}
+
+/// ------------------------
+// pc-nav
+// -------------------------
+.pc-nav {
+  background-color: $bg-primary;
+
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1080px;
+  position: relative;
+  gap: 2rem;
+
+  @include mq(md) {
+    display: flex;
+  }
+
+  @include mq(lg) {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  &__menu {
+    display: none;
+
+    @include mq(md) {
+      display: flex;
+    }
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding-top: 184px;
+
+    @include mq(lg) {
+      // 牛 + 文字分の余白
+      padding-top: 114px;
+      padding-left: 3%;
+      padding-right: 3%;
+      flex-basis: 33%;
+      gap: 0;
+    }
+
+    &-l {
+      @include mq(lg) {
+        padding-right: 10px;
+      }
+    }
+    &-r {
+      @include mq(lg) {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+  }
+}
+
+// logo
+.main-logo {
+  position: absolute;
+  top: calc(-50% - (154px / 2));
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include mq(md) {
+    top: calc(-154px / 2);
+  }
+
+  &__img {
+    background-color: $bg-primary;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    width: 154px;
+    height: 154px;
+
+    & > img {
+      width: 96px;
+      height: 96px;
+    }
+  }
+}
+
+/// ------------------------
+// about
+// -------------------------
+.about {
+  padding-top: 175px;
+  background-color: $bg-primary;
+
+  @include mq(md) {
+    padding-top: 130px;
+  }
+
+  &__inner {
+    position: relative;
+
+    width: 90%;
+    margin: 0 auto;
+
+    @include mq(md) {
+      padding-left: 18px;
+    }
+
+    @include mq(xl) {
+      padding-left: 120px;
+    }
+  }
+  &__text {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  // キャッチコピー
+  &__copy {
+    line-height: 2;
+    padding: 9px 10px;
+    margin-bottom: 18px;
+    text-align: center;
+
+    color: $font-accent;
+    background-color: rgba($bg-white, 0.9);
+    font-size: 1.5rem; // 24px
+    font-weight: 700;
+
+    @include mq(md) {
+      line-height: 1.5;
+      font-size: 2rem; // 32px
+      width: max-content;
+    }
+
+    @include mq(lg) {
+      font-size: 2.5rem; // 40px
+    }
+
+    // キャッチコピーを改行
+    & > span {
+      display: block;
+
+      @include mq(md) {
+        display: inline;
+      }
+    }
+  }
+  &__content {
+    background-color: rgba($bg-white, 0.9);
+    color: $font-base;
+    font-weight: 700;
+    padding: 15px;
+    line-height: 2;
+
+    @include mq(md) {
+      line-height: 2.5;
+      width: 526px;
+    }
+
+    // pcサイズの改行を調整
+    & .pc-block {
+      display: inline;
+      @include mq(md) {
+        display: block;
+      }
+    }
+
+    // スマホサイズの改行を調整
+    & .sp-block {
+      margin-bottom: 10px;
+      @include mq(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // 画像エリア
+  &__img {
+    position: static;
+
+    @include mq(md) {
+      position: absolute;
+      top: -4%;
+      right: 0;
+    }
+
+    @include mq(lg) {
+      top: -7%;
+    }
+  }
+
+  // 画像
+  &__item {
+    display: flex;
+    flex-direction: row;
+
+    &-lg {
+      width: 90%;
+      margin-left: auto;
+
+      @include mq(md) {
+        width: 600px;
+      }
+
+      @include mq(lg) {
+        width: 786px;
+      }
+    }
+    &-sm {
+      margin-top: 1rem;
+      width: 60%;
+
+      @include mq(md) {
+        width: 320px;
+        margin-left: auto;
+      }
+
+      @include mq(lg) {
+        width: 393px;
+      }
+    }
+  }
+}
+
+/// ------------------------
+// product
+// -------------------------
+.swiper {
+  overflow: hidden;
+  padding: 94px 0;
+}
+
+.card {
+  background-color: $bg-white;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+
+  &__img-wrapper {
+    margin: 0 auto;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // テキストエリアの高さを揃える
+    min-height: 200px;
+
+    @include mq(md) {
+      min-height: 180px;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+  }
+}
+
+// -------------------------
+// info
+// -------------------------
+.info {
+  background-color: $bg-white;
+
+  &__inner {
+    max-width: 934px;
+  }
+
+  &__item {
+    border-bottom: 1px solid $border;
+    padding: 22px 0;
+
+    &:first-child {
+      border-top: 1px solid $border;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 120px;
+      align-items: center;
+    }
+  }
+
+  &__date {
+    font-size: 0.8125rem; // 13px
+    color: $font-date;
+  }
+}
+
+// -------------------------
+// faq
+// -------------------------
+.faq {
+  background-color: $bg-primary;
+
+  &__inner {
+    max-width: 740px;
+  }
+
+  &__question {
+    padding: 10px 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: $bg-white;
+    position: relative;
+    cursor: pointer;
+
+    // 矢印（close）
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      top: 50%;
+      right: 20px;
+
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid $border;
+      border-right: 2px solid $border;
+      transform: translateY(-50%) rotate(135deg);
+      transition: all 0.3s ease-in-out;
+    }
+
+    // 矢印（open）
+    &.is-active::after {
+      transform: translateY(-30%) rotate(-45deg);
+    }
+  }
+
+  &__label {
+    font-size: 1.5rem; // 24px
+    font-family: $font-family-en;
+  }
+  &__question-text {
+    @include mq(md) {
+      font-size: 1.125rem; // 18px
+    }
+  }
+
+  &__answer {
+    padding: 12px 14px;
+    opacity: 0;
+    height: 0;
+    transition-duration: 0.3s;
+
+    &.is-open {
+      opacity: 1;
+      height: auto;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+// -------------------------
+// access
+// -------------------------
+.access {
+  background-color: $bg-white;
+  &__inner {
+    max-width: 934px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__text {
+    @include mq(md) {
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid $border;
+    font-weight: 700;
+
+    &:first-child {
+      border-top: 1px solid $border;
+    }
+
+    @include mq(md) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__label,
+  &__content {
+    padding: 20px 0;
+  }
+
+  &__label {
+    width: 30%;
+  }
+
+  &__map {
+    width: 100%;
+
+    @include mq(md) {
+    }
+    & iframe {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+    }
+  }
+}
+
+// -------------------------
+// contact
+// -------------------------
+.contact {
+  &__inner {
+    max-width: 740px;
+  }
+
+  &__msg {
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 94px;
+
+    @include mq(md) {
+      font-size: 18px;
+    }
+  }
+
+  &__form-wrapper {
+    width: 100%;
+    background-color: $bg-white;
+    padding: 30px;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 44px;
+    font-weight: 700;
+  }
+  &__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    width: 100%;
+
+    @include mq(md) {
+      width: 40%;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin-top: 12px;
+
+    @include mq(md) {
+      width: 60%;
+      margin-top: 0;
+    }
+  }
+
+  &__btn {
+    margin-top: 50px;
+    opacity: 0.4;
+  }
+}

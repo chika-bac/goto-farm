@@ -1,0 +1,19 @@
+@use "../global" as *;
+
+/// ------------------------
+// Loading
+// ------------------------
+#loading {
+  background-color: $bg-primary;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+
+  & p {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700;
+  }
+}

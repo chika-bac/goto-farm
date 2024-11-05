@@ -1,0 +1,27 @@
+@use "../global" as *;
+
+/// ------------------------
+// Component > title
+// ------------------------
+
+// header2
+.c-title-header2 {
+  font-size: 1.5rem; // 24px
+  font-weight: 700;
+  color: $font-primary;
+
+  // 中央寄せ
+  &--center {
+    text-align: center;
+  }
+
+  // 英語大文字
+  &--en{
+    text-transform: uppercase;
+  }
+
+  @include mq(md) {
+    font-size: 2rem; // 32px
+  }
+
+}

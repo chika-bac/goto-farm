@@ -1,0 +1,63 @@
+@use "../global" as *;
+
+/// ------------------------
+// Layout > section
+// ------------------------
+.l-section {
+  // セクション間の上下余白
+  padding: 94px 0;
+  position: relative;
+
+  &-body {
+    // h2 title - bodyの余白
+    padding-top: 75px;
+    @include mq(md) {
+      padding-top: 94px;
+    }
+
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  & .separate {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    width: 180px;
+    z-index: 10;
+
+    @include mq(md) {
+      width: 235px;
+    }
+
+    &--left {
+      left: 0;
+    }
+    &--right {
+      right: 0;
+    }
+
+	&--breakfast{
+		@include mq(lg) {
+			width: 349px;
+		  }
+	}
+
+	&--sprouts{
+		@include mq(lg) {
+			width: 264px;
+		  }
+	}
+
+	&--strawberry{
+		@include mq(lg) {
+			width: 297px;
+		  }
+	}
+	&--livestock{
+		@include mq(lg) {
+			width: 237px;
+		  }
+	}
+  }
+}

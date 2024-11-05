@@ -1,0 +1,16 @@
+@use "../global" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@700&display=swap");
+
+// ------------------------
+// Base
+// ------------------------
+html{
+  scroll-behavior: smooth;
+}
+body {
+  line-height: 1.5;
+  color: $font-primary;
+  font-family: $font-family-base;
+  background-color: $bg-primary;
+}
