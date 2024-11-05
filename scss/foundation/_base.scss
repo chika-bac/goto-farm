@@ -13,4 +13,9 @@ body {
   color: $font-primary;
   font-family: $font-family-base;
   background-color: $bg-primary;
+
+    // メニューopen時にスクロール禁止
+    &.isScrollAllowed {
+      overflow: hidden;
+    }
 }
